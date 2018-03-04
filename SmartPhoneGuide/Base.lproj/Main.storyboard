@@ -1,24 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14101" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Title-->
+        <scene sceneID="Aii-DV-nwS">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController storyboardIdentifier="detailViewControllerId" id="ojF-26-sYq" customClass="DetailViewController" customModule="SmartPhoneGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ubb-0p-KnF"/>
+                        <viewControllerLayoutGuide type="bottom" id="IC7-Z3-lVe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O5j-cy-Uw8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxk-Oy-EaZ" customClass="MarkdownView" customModule="MarkdownView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-gA-ChG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-Pu-z7S">
+                                        <rect key="frame" x="8" y="0.0" width="37" height="44"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneButtonTouched:" destination="ojF-26-sYq" eventType="touchUpInside" id="DHK-rk-Gyj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dKP-Pu-z7S" firstAttribute="leading" secondItem="JGG-gA-ChG" secondAttribute="leading" constant="8" id="KWa-Ez-2i4"/>
+                                    <constraint firstAttribute="bottom" secondItem="dKP-Pu-z7S" secondAttribute="bottom" id="Quo-R4-DT5"/>
+                                    <constraint firstItem="dKP-Pu-z7S" firstAttribute="top" secondItem="JGG-gA-ChG" secondAttribute="top" id="ep4-P7-r41"/>
+                                    <constraint firstAttribute="height" constant="44" id="n5Y-zw-Rgu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JGG-gA-ChG" secondAttribute="trailing" id="9kq-p4-tNs"/>
+                            <constraint firstItem="JGG-gA-ChG" firstAttribute="leading" secondItem="O5j-cy-Uw8" secondAttribute="leading" id="Jpx-sR-b5t"/>
+                            <constraint firstItem="xxk-Oy-EaZ" firstAttribute="bottom" secondItem="IC7-Z3-lVe" secondAttribute="top" id="OB2-xw-44T"/>
+                            <constraint firstItem="xxk-Oy-EaZ" firstAttribute="trailing" secondItem="O5j-cy-Uw8" secondAttribute="trailing" id="WEG-G8-dF5"/>
+                            <constraint firstItem="JGG-gA-ChG" firstAttribute="top" secondItem="Ubb-0p-KnF" secondAttribute="bottom" id="b3w-zu-dfC"/>
+                            <constraint firstItem="xxk-Oy-EaZ" firstAttribute="top" secondItem="JGG-gA-ChG" secondAttribute="bottom" id="m1v-fh-Uj9"/>
+                            <constraint firstItem="xxk-Oy-EaZ" firstAttribute="leading" secondItem="O5j-cy-Uw8" secondAttribute="leading" id="vCk-fs-Ymc"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="gjz-HQ-TF4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="aWk-De-Jvr"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentMarkdownView" destination="xxk-Oy-EaZ" id="qfs-LQ-Cu2"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R5b-Mg-Eue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="885.60000000000002" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>
